@@ -1,11 +1,10 @@
 project:
   type: manuscript
-
 format:
   html:
     toc: true
-    comments:
-      hypothesis: true
+    code-fold: true
+    code-tools: true
   docx: default
   jats: default
   agu-pdf: default
