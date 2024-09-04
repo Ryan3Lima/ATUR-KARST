@@ -107,10 +107,10 @@ Systems</institution>
 <corresp id="cor-1">ryan.lima@nau.edu</corresp>
 </author-notes>
 
-<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-08-28">
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-09-04">
 <year>2024</year>
-<month>8</month>
-<day>28</day>
+<month>9</month>
+<day>4</day>
 </pub-date>
 
 
@@ -151,6 +151,9 @@ recharge enhancement in the State of Arizona</p>
 <sec id="conclusion">
   <title>3 Conclusion</title>
 </sec>
+<sec id="literature-reviewed">
+  <title>4 Literature Reviewed</title>
+</sec>
 <sec id="references">
   <title>References</title>
 </sec>
@@ -159,6 +162,133 @@ recharge enhancement in the State of Arizona</p>
 <back>
 </back>
 
+<sub-article article-type="notebook" id="nb-5-nb-article">
+<front-stub>
+<title-group>
+<article-title>Karst feature characterization to identify locations for
+opportunistic recharge enhancement in Arizona</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">0000-0002-5352-7215</contrib-id>
+<name>
+<surname>Lima</surname>
+<given-names>Ryan E.</given-names>
+</name>
+<string-name>Ryan E. Lima</string-name>
+<degrees>PhD</degrees>
+<email>ryan.lima@nau.edu</email>
+<role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role vocab="https://credit.niso.org" vocab-term="software" vocab-term-identifier="https://credit.niso.org/contributor-roles/software/">Software</role>
+<role vocab="https://credit.niso.org" vocab-term="visualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/visualization/">Visualization</role>
+<xref ref-type="aff" rid="aff-1-nb-article">a</xref>
+<xref ref-type="aff" rid="aff-2-nb-article">b</xref>
+<xref ref-type="aff" rid="aff-3-nb-article">c</xref>
+<xref ref-type="corresp" rid="cor-1-nb-article">&#x002A;</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Springer</surname>
+<given-names>Abraham E.</given-names>
+</name>
+<string-name>Abraham E. Springer</string-name>
+<degrees>PhD</degrees>
+<xref ref-type="aff" rid="aff-1-nb-article">a</xref>
+<xref ref-type="aff" rid="aff-3-nb-article">c</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Sankey</surname>
+<given-names>Temuulen Tsagaan</given-names>
+</name>
+<string-name>Temuulen Tsagaan Sankey</string-name>
+<degrees>PhD</degrees>
+<xref ref-type="aff" rid="aff-1-nb-article">a</xref>
+<xref ref-type="aff" rid="aff-2-nb-article">b</xref>
+</contrib>
+</contrib-group>
+<aff id="aff-1-nb-article">
+<institution-wrap>
+<institution>Northern Arizona University</institution>
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<aff id="aff-2-nb-article">
+<institution-wrap>
+<institution>School of Informatics, Computing &amp; Cyber
+Systems</institution>
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<aff id="aff-3-nb-article">
+<institution-wrap>
+<institution>School of Earth and Sustainability</institution>
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<author-notes>
+<corresp id="cor-1-nb-article">ryan.lima@nau.edu</corresp>
+</author-notes>
+<abstract>
+<p>This research utlizes remote sensing and GIS to characterize karst
+surface features and map areas suitable for opportunistic groundwater
+recharge enhancement in the State of Arizona</p>
+</abstract>
+</front-stub>
+
+<body>
+<sec id="cell-1-nb-article" specific-use="notebook-content">
+<sec id="introduction-nb-article">
+  <title>1 Introduction</title>
+  </sec>
+  <sec id="cell-2-nb-article" specific-use="notebook-content">
+</sec>
+<sec id="sec-data-methods-nb-article">
+  <title>2 Data &amp; Methods</title>
+  </sec>
+  <sec id="cell-3-nb-article" specific-use="notebook-content">
+</sec>
+<sec id="conclusion-nb-article">
+  <title>3 Conclusion</title>
+  </sec>
+  <sec id="cell-4-nb-article" specific-use="notebook-content">
+</sec>
+<sec id="literature-reviewed-nb-article">
+  <title>4 Literature Reviewed</title>
+  </sec>
+  <sec id="cell-6-nb-article" specific-use="notebook-content">
+</sec>
+<sec id="references-nb-article">
+  <title>References</title>
+  </sec>
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
 <!-- (F2ED4C6E)[nb-1]:/home/runner/work/ATUR-KARST/ATUR-KARST/notebooks/Lineament_extraction_testing.ipynb -->
 
 </article>
