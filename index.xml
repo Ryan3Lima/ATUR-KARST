@@ -107,10 +107,10 @@ Systems</institution>
 <corresp id="cor-1">ryan.lima@nau.edu</corresp>
 </author-notes>
 
-<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-09-04">
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-09-05">
 <year>2024</year>
 <month>9</month>
-<day>4</day>
+<day>5</day>
 </pub-date>
 
 
@@ -162,7 +162,7 @@ recharge enhancement in the State of Arizona</p>
 <back>
 </back>
 
-<sub-article article-type="notebook" id="nb-5-nb-article">
+<sub-article article-type="notebook" id="nb-11-nb-article">
 <front-stub>
 <title-group>
 <article-title>Karst feature characterization to identify locations for
@@ -290,5 +290,314 @@ recharge enhancement in the State of Arizona</p>
 
 </sub-article>
 <!-- (F2ED4C6E)[nb-1]:/home/runner/work/ATUR-KARST/ATUR-KARST/notebooks/Lineament_extraction_testing.ipynb -->
+<sub-article article-type="notebook" id="nb-5-nb-2">
+<front-stub>
+<title-group>
+<article-title>Testing sink hole delineation in the Woods Canyon
+15-minute quad</article-title>
+</title-group>
+</front-stub>
+
+<body>
+<sec id="ad10176c-c6e3-4f48-a3b9-2917a7727ece-nb-2" specific-use="notebook-content">
+<p>Testing sink hole delineation using the 1/3 arcsecond 10m 3DEP
+elevation dataset for the Woods Canyon 15 minute quad.</p>
+<p>Data from the Science Data Catalog</p>
+<p><bold>Dataset:</bold>
+<ext-link ext-link-type="uri" xlink:href="https://data.usgs.gov/datacatalog/data/USGS:3a81321b-c153-416f-98b7-cc8e5f0e17c3">1/3
+arc-second Digital Elevation Models (DEMS) - USGS National Map 3DEP
+Downloadable Data Collection</ext-link></p>
+<p><bold>Description:</bold> This is a tiled collection of the 3D
+Elevation Program (3DEP) and is 1/3 arc-second (approximately 10 m)
+resolution. The 3DEP data holdings serve as the elevation layer of The
+National Map, and provide foundational elevation information for earth
+science studies and mapping applications in the United States.
+Scientists and resource managers use 3DEP data for hydrologic modeling,
+resource monitoring, mapping and visualization, and many other
+applications. The elevations in this DEM represent the topographic
+bare-earth surface. The seamless 1/3 arc-second DEM layers are derived
+from diverse source data that are processed to a common coordinate
+system and unit of vertical measure. These data are distributed in
+geographic coordinates in units of decimal degrees, and in conformance
+with the North American Datum of 1983 (NAD 83). All elevation values are
+in meters and, over the continental United States, are referenced to the
+North American Vertical Datum of 1988 (NAVD88). The seamless 1/3
+arc-second DEM layer provides coverage of the conterminous United
+States, Hawaii, Puerto Rico, other territorial islands, and in limited
+areas of Alaska. The seamless 1/3arc-second DEM is available as
+pre-staged current and historical products tiled in GeoTIFF format. The
+seamless 1/3 arc-second DEM layer is updated continually as new data
+become available in the current folder. Previously created 1 degree
+blocks are retained in the historical folder with an appended date
+suffix (YYYMMDD) when they were produced. Other 3DEP products are
+nationally seamless DEMs in resolutions of 1, and 2 arc seconds. These
+seamless DEMs were referred to as the National Elevation Dataset (NED)
+from about 2000 through 2015 at which time they became the seamless DEM
+layers under the 3DEP program and the NED name and system were retired.
+Other 3DEP products include one-meter DEMs produced exclusively from
+high resolution light detection and ranging (lidar) source data and
+five-meter DEMs in Alaska as well as various source datasets including
+the lidar point cloud and interferometric synthetic aperture radar
+(Ifsar) digital surface models and intensity images. All 3DEP products
+are public domain.</p>
+</sec>
+<sec id="cell-29bfd6bd-5319-4908-8760-e54d9cf05f68-nb-2" specific-use="notebook-content">
+<code language="python">#\ echo: false
+## install required libraries if not already installed 
+#!pip install rasterio geopandas matplotlib
+</code>
+</sec>
+<sec id="cell-58643151-f216-404d-befa-93c526ba8027-nb-2" specific-use="notebook-content">
+<p><bold>rasterio:</bold> A library used for reading and writing
+geospatial raster data (such as DEMs), with support for masking,
+reprojecting, and manipulating raster datasets.</p>
+<p><bold>geopandas:</bold> An extension of pandas that simplifies
+working with geospatial data, enabling easy reading, writing, and
+manipulation of vector data such as shapefiles.</p>
+<p><bold>matplotlib:</bold> A popular plotting library in Python, used
+for creating static, animated, and interactive visualizations, including
+map displays and colormaps for DEMs.</p>
+</sec>
+<sec id="e640acc4-a097-4b3b-874f-33a76ac97b4d-nb-2" specific-use="notebook-content">
+<code language="python">import rasterio
+import geopandas as gpd
+from rasterio.mask import mask
+from rasterio.plot import show  
+import matplotlib.pyplot as plt
+from matplotlib.colors import LightSource
+from shapely.geometry import box</code>
+</sec>
+<sec id="c294d4db-fd94-4d4f-a882-97841a89ace7-nb-2" specific-use="notebook-content">
+<code language="python">dem_url = &quot;https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif&quot;
+shapefile_path = r&quot;G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp&quot;
+</code>
+</sec>
+<sec id="a56fdcc2-9e5b-41b5-ae23-5c99a539a658-nb-2" specific-use="notebook-content">
+<code language="python"># Step 1: Load the DEM from the National Map
+#dem_url = &quot;https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif&quot;
+
+with rasterio.open(dem_url) as src:
+    dem_data = src.read(1)
+    dem_meta = src.meta</code>
+</sec>
+<sec id="cell-9796c5ac-7af0-4c4e-9a67-51fbc3ad6107-nb-2" specific-use="notebook-content">
+<code language="python"># Plot the DEM using imshow to allow colorbar creation
+plt.figure(figsize=(10, 10))
+plt.title(&quot;Loaded DEM&quot;)
+plt.imshow(dem_data, cmap='terrain')
+plt.colorbar(label='Elevation (m)')
+plt.show()</code>
+<boxed-text>
+  <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-6-output-1.png" />
+</boxed-text>
+</sec>
+<sec id="b1d9c9f7-1511-4697-82e8-69a6ee9f3185-nb-2" specific-use="notebook-content">
+<code language="python"># Step 2: Load the shapefile for masking
+#shapefile_path = r&quot;G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp&quot;
+shape_data = gpd.read_file(shapefile_path)
+
+# Reproject the shapefile to the DEM's CRS (if necessary)
+shape_data = shape_data.to_crs(dem_meta['crs'])
+
+# Check if shapefile bounds intersect DEM bounds
+dem_bounds = src.bounds
+shape_bounds = shape_data.total_bounds
+if not box(*dem_bounds).intersects(box(*shape_bounds)):
+    print(&quot;Shapefile and DEM do not overlap. Please check the coordinates.&quot;)
+else:
+    print(&quot;Shapefile and DEM overlap.&quot;)
+
+print(&quot;DEM bounds:&quot;, src.bounds)
+print(&quot;Shapefile bounds:&quot;, shape_data.total_bounds)</code>
+<boxed-text>
+  <preformat>Shapefile and DEM overlap.
+DEM bounds: BoundingBox(left=-111.00055555639324, bottom=33.99944444340724, right=-109.99944444420515, top=35.000555556494646)
+Shapefile bounds: [-111.00000001   34.24999995 -110.75000001   34.49999995]</preformat>
+</boxed-text>
+</sec>
+<sec id="cell-0614c8a2-7ec9-4fd3-a7ac-e78c5bf62f2a-nb-2" specific-use="notebook-content">
+<code language="python"># Step 3: Plot the DEM and shapefile to check overlap
+plt.figure(figsize=(10, 10))
+plt.title(&quot;DEM and Shapefile Overlay&quot;)
+
+# Plot the DEM
+plt.imshow(dem_data, cmap='terrain', extent=[src.bounds.left, src.bounds.right, src.bounds.bottom, src.bounds.top])
+
+# Plot the shapefile geometry
+shape_data.boundary.plot(ax=plt.gca(), color='red')
+plt.show()</code>
+<boxed-text>
+  <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-8-output-1.png" />
+</boxed-text>
+</sec>
+<sec id="d44d67e4-2f5d-4b4f-bed7-190722b9711f-nb-2" specific-use="notebook-content">
+<code language="python"># Check the NoData value of the DEM
+print(&quot;NoData value in DEM:&quot;, dem_meta['nodata'])
+
+# Replace NoData values (if any) with NaN for easier visualization
+masked_data = out_image[0]
+masked_data[masked_data == dem_meta['nodata']] = float('nan')
+
+# Plot the masked DEM
+plt.figure(figsize=(10, 10))
+plt.title(&quot;Masked DEM with NoData handled&quot;)
+plt.imshow(masked_data, cmap='terrain')
+plt.colorbar(label='Elevation (m)')
+plt.show()
+</code>
+<boxed-text>
+  <preformat>NoData value in DEM: -999999.0</preformat>
+</boxed-text>
+<boxed-text>
+  <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-9-output-2.png" />
+</boxed-text>
+</sec>
+<sec id="c509d2c6-97f1-488a-895b-43e4840f9a77-nb-2" specific-use="notebook-content">
+<code language="python"># Reproject the shapefile to match the DEM CRS (EPSG:4269)
+shape_data = shape_data.to_crs(dem_meta['crs'])
+
+# Verify CRS alignment
+print(&quot;Shapefile CRS after reprojection:&quot;, shape_data.crs)
+
+print(&quot;Masked DEM min value:&quot;, masked_data.min())
+print(&quot;Masked DEM max value:&quot;, masked_data.max())
+print(&quot;Masked DEM shape:&quot;, masked_data.shape)
+
+print(&quot;DEM CRS:&quot;, dem_meta['crs'])
+print(&quot;Shapefile CRS:&quot;, shape_data.crs)</code>
+<boxed-text>
+  <preformat>Shapefile CRS after reprojection: GEOGCS[&quot;NAD83&quot;,DATUM[&quot;North_American_Datum_1983&quot;,SPHEROID[&quot;GRS 1980&quot;,6378137,298.257222101004,AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6269&quot;]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AXIS[&quot;Latitude&quot;,NORTH],AXIS[&quot;Longitude&quot;,EAST],AUTHORITY[&quot;EPSG&quot;,&quot;4269&quot;]]
+Masked DEM min value: nan
+Masked DEM max value: nan
+Masked DEM shape: (2701, 2701)
+DEM CRS: EPSG:4269
+Shapefile CRS: GEOGCS[&quot;NAD83&quot;,DATUM[&quot;North_American_Datum_1983&quot;,SPHEROID[&quot;GRS 1980&quot;,6378137,298.257222101004,AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6269&quot;]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AXIS[&quot;Latitude&quot;,NORTH],AXIS[&quot;Longitude&quot;,EAST],AUTHORITY[&quot;EPSG&quot;,&quot;4269&quot;]]</preformat>
+</boxed-text>
+</sec>
+<sec id="cell-083295c7-a74d-4dee-9f07-e04870ad32e7-nb-2" specific-use="notebook-content">
+<code language="python"># Step 3: Mask the DEM by the shapefile
+with rasterio.open(dem_url) as src:
+    out_image, out_transform = mask(src, shape_data.geometry, crop=True)
+    out_meta = src.meta.copy()
+
+# Update the metadata to reflect the mask and cropping
+out_meta.update({&quot;driver&quot;: &quot;GTiff&quot;, &quot;height&quot;: out_image.shape[1], &quot;width&quot;: out_image.shape[2], &quot;transform&quot;: out_transform})
+
+# Plot the masked DEM to ensure the mask was applied correctly
+plt.figure(figsize=(10, 10))
+plt.title(&quot;Masked DEM&quot;)
+plt.imshow(out_image[0], cmap='terrain')
+plt.colorbar(label='Elevation (m)')
+plt.show()</code>
+<boxed-text>
+  <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-11-output-1.png" />
+</boxed-text>
+</sec>
+<sec id="cell-1667a3f9-e0ee-4346-96fd-f18db8085363-nb-2" specific-use="notebook-content">
+<code language="python"># Step 4: Reproject to UTM Zone 12N NAD 83 (2011)
+utm_crs = 'EPSG:6341'  # UTM Zone 12N NAD 83 (2011)
+
+transform, width, height = calculate_default_transform(
+    out_meta['crs'], utm_crs, out_meta['width'], out_meta['height'], *src.bounds)
+out_meta.update({
+    'crs': utm_crs,
+    'transform': transform,
+    'width': width,
+    'height': height
+})
+
+# Step 5: Display the masked DEM with a terrain colormap
+ls = LightSource(azdeg=315, altdeg=45)  # Add lighting for terrain effect
+hillshade = ls.hillshade(out_image[0], vert_exag=1, dx=1, dy=1)
+
+plt.figure(figsize=(10, 10))
+plt.imshow(hillshade, cmap='terrain')
+plt.colorbar(label='Elevation (m)')
+plt.title('Terrain DEM')
+plt.show()</code>
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-8-nb-3">
+<front-stub>
+</front-stub>
+
+<body>
+<sec id="cell-486a6569-6b42-4c38-9c66-ccdfffd5c7b3-nb-3" specific-use="notebook-content">
+<code language="python">---
+title: Karst feature characterization to identify locations for opportunistic recharge enhancement in Arizona
+author:
+  - name:
+      given: Ryan E.
+      family: Lima
+    degrees:
+        - PhD
+    orcid: 0000-0002-5352-7215
+    corresponding: true
+    email: ryan.lima@nau.edu
+    roles:
+      - Investigation    
+      - Software
+      - Visualization
+    affiliations:
+      - Northern Arizona University
+      - School of Informatics, Computing &amp; Cyber Systems
+      - School of Earth and Sustainability
+  - name: Abraham E. Springer
+    degrees:
+        - PhD
+    corresponding: false
+    roles: []
+    affiliations:
+      - Northern Arizona University
+      - School of Earth and Sustainability
+  - name: Temuulen Tsagaan Sankey
+    degrees:
+        - PhD
+    corresponding: false
+    roles: []
+    affiliations:
+      - Northern Arizona University
+      - School of Informatics, Computing &amp; Cyber Systems
+keywords:
+  - Karst
+  - Recharge
+  - Arizona
+  - Opportunistic Recharge Enhancement
+abstract: |
+  This research utlizes remote sensing and GIS to characterize karst surface features and map areas suitable for opportunistic groundwater recharge enhancement in the State of Arizona
+  
+plain-language-summary: |
+  This research utlizes remote sensing and GIS to characterize karst surface features and map areas suitable for opportunistic groundwater recharge enhancement in the State of Arizona
+key-points:
+  - Key point 1
+  - Key point 2 
+date: last-modified
+bibliography: references.bib
+citation:
+  container-title: Journal Name
+number-sections: true
+---</code>
+</sec>
+<sec id="ba35528e-110c-41d9-9c08-318be1efeff2-nb-3" specific-use="notebook-content">
+<code language="python">## Introduction
+</code>
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
 
 </article>
