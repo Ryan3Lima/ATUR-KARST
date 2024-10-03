@@ -198,70 +198,81 @@
     </div>  </div>
 </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#using-the-whitebox_tools.py-script" id="toc-using-the-whitebox_tools.py-script" class="nav-link active" data-scroll-target="#using-the-whitebox_tools.py-script">Using the <em>Whitebox_tools.py</em> script</a></li>
+  </ul>
+</nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
 <main class="content quarto-banner-title-block" id="quarto-document-content">      
 
-     <div id="ad10176c-c6e3-4f48-a3b9-2917a7727ece" class="cell markdown">
+       <div id="ad10176c-c6e3-4f48-a3b9-2917a7727ece" class="cell markdown">
 <p>Testing sink hole delineation using the 1/3 arcsecond 10m 3DEP elevation dataset for the Woods Canyon 15 minute quad.</p>
 <p>Data from the Science Data Catalog</p>
 <p><strong>Dataset:</strong> <a href="https://data.usgs.gov/datacatalog/data/USGS:3a81321b-c153-416f-98b7-cc8e5f0e17c3">1/3 arc-second Digital Elevation Models (DEMS) - USGS National Map 3DEP Downloadable Data Collection</a></p>
 <p><strong>Description:</strong> This is a tiled collection of the 3D Elevation Program (3DEP) and is 1/3 arc-second (approximately 10 m) resolution. The 3DEP data holdings serve as the elevation layer of The National Map, and provide foundational elevation information for earth science studies and mapping applications in the United States. Scientists and resource managers use 3DEP data for hydrologic modeling, resource monitoring, mapping and visualization, and many other applications. The elevations in this DEM represent the topographic bare-earth surface. The seamless 1/3 arc-second DEM layers are derived from diverse source data that are processed to a common coordinate system and unit of vertical measure. These data are distributed in geographic coordinates in units of decimal degrees, and in conformance with the North American Datum of 1983 (NAD 83). All elevation values are in meters and, over the continental United States, are referenced to the North American Vertical Datum of 1988 (NAVD88). The seamless 1/3 arc-second DEM layer provides coverage of the conterminous United States, Hawaii, Puerto Rico, other territorial islands, and in limited areas of Alaska. The seamless 1/3arc-second DEM is available as pre-staged current and historical products tiled in GeoTIFF format. The seamless 1/3 arc-second DEM layer is updated continually as new data become available in the current folder. Previously created 1 degree blocks are retained in the historical folder with an appended date suffix (YYYMMDD) when they were produced. Other 3DEP products are nationally seamless DEMs in resolutions of 1, and 2 arc seconds. These seamless DEMs were referred to as the National Elevation Dataset (NED) from about 2000 through 2015 at which time they became the seamless DEM layers under the 3DEP program and the NED name and system were retired. Other 3DEP products include one-meter DEMs produced exclusively from high resolution light detection and ranging (lidar) source data and five-meter DEMs in Alaska as well as various source datasets including the lidar point cloud and interferometric synthetic aperture radar (Ifsar) digital surface models and intensity images. All 3DEP products are public domain.</p>
 </div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="29bfd6bd-5319-4908-8760-e54d9cf05f68" class="cell" data-execution_count="3">
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [16]:</pre></div><div id="29bfd6bd-5319-4908-8760-e54d9cf05f68" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#\ echo: false</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">## install required libraries if not already installed </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install rasterio geopandas matplotlib</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## install required libraries if not already installed </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install rasterio geopandas matplotlib</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install whitebox <span class="op">-</span>U</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Requirement already satisfied: whitebox in c:\users\rl587\appdata\local\anaconda3\lib\site-packages (2.3.5)
+Requirement already satisfied: Click&gt;=6.0 in c:\users\rl587\appdata\local\anaconda3\lib\site-packages (from whitebox) (8.1.7)
+Requirement already satisfied: colorama in c:\users\rl587\appdata\local\anaconda3\lib\site-packages (from Click&gt;=6.0-&gt;whitebox) (0.4.6)</code></pre>
+</div>
 </div></div>
 <div id="58643151-f216-404d-befa-93c526ba8027" class="cell markdown">
 <p><strong>rasterio:</strong> A library used for reading and writing geospatial raster data (such as DEMs), with support for masking, reprojecting, and manipulating raster datasets.</p>
 <p><strong>geopandas:</strong> An extension of pandas that simplifies working with geospatial data, enabling easy reading, writing, and manipulation of vector data such as shapefiles.</p>
 <p><strong>matplotlib:</strong> A popular plotting library in Python, used for creating static, animated, and interactive visualizations, including map displays and colormaps for DEMs.</p>
 </div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [19]:</pre></div><div id="e640acc4-a097-4b3b-874f-33a76ac97b4d" class="cell" data-execution_count="19">
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="e640acc4-a097-4b3b-874f-33a76ac97b4d" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.mask <span class="im">import</span> mask</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.plot <span class="im">import</span> show  </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LightSource</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> box</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.mask <span class="im">import</span> mask</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.plot <span class="im">import</span> show  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LightSource</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> box</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div></div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="c294d4db-fd94-4d4f-a882-97841a89ace7" class="cell" data-execution_count="9">
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="c294d4db-fd94-4d4f-a882-97841a89ace7" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dem_url <span class="op">=</span> <span class="st">"https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>shapefile_path <span class="op">=</span> <span class="vs">r"G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dem_url <span class="op">=</span> <span class="st">"https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>shapefile_path <span class="op">=</span> <span class="vs">r"G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div></div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="a56fdcc2-9e5b-41b5-ae23-5c99a539a658" class="cell" data-execution_count="10">
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="a56fdcc2-9e5b-41b5-ae23-5c99a539a658" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Load the DEM from the National Map</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dem_url = "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(dem_url) <span class="im">as</span> src:</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    dem_data <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    dem_meta <span class="op">=</span> src.meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Load the DEM from the National Map</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dem_url = "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(dem_url) <span class="im">as</span> src:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    dem_data <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    dem_meta <span class="op">=</span> src.meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div></div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="9796c5ac-7af0-4c4e-9a67-51fbc3ad6107" class="cell" data-execution_count="12">
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="9796c5ac-7af0-4c4e-9a67-51fbc3ad6107" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the DEM using imshow to allow colorbar creation</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Loaded DEM"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.imshow(dem_data, cmap<span class="op">=</span><span class="st">'terrain'</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Elevation (m)'</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the DEM using imshow to allow colorbar creation</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Loaded DEM"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.imshow(dem_data, cmap<span class="op">=</span><span class="st">'terrain'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Elevation (m)'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="">
@@ -271,26 +282,26 @@
 </div>
 </div>
 </div></div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [22]:</pre></div><div id="b1d9c9f7-1511-4697-82e8-69a6ee9f3185" class="cell" data-execution_count="22">
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="b1d9c9f7-1511-4697-82e8-69a6ee9f3185" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Load the shapefile for masking</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#shapefile_path = r"G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp"</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>shape_data <span class="op">=</span> gpd.read_file(shapefile_path)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproject the shapefile to the DEM's CRS (if necessary)</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>shape_data <span class="op">=</span> shape_data.to_crs(dem_meta[<span class="st">'crs'</span>])</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if shapefile bounds intersect DEM bounds</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>dem_bounds <span class="op">=</span> src.bounds</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>shape_bounds <span class="op">=</span> shape_data.total_bounds</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> box(<span class="op">*</span>dem_bounds).intersects(box(<span class="op">*</span>shape_bounds)):</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Shapefile and DEM do not overlap. Please check the coordinates."</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Shapefile and DEM overlap."</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"DEM bounds:"</span>, src.bounds)</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shapefile bounds:"</span>, shape_data.total_bounds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Load the shapefile for masking</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#shapefile_path = r"G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>shape_data <span class="op">=</span> gpd.read_file(shapefile_path)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproject the shapefile to the DEM's CRS (if necessary)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>shape_data <span class="op">=</span> shape_data.to_crs(dem_meta[<span class="st">'crs'</span>])</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if shapefile bounds intersect DEM bounds</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>dem_bounds <span class="op">=</span> src.bounds</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>shape_bounds <span class="op">=</span> shape_data.total_bounds</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> box(<span class="op">*</span>dem_bounds).intersects(box(<span class="op">*</span>shape_bounds)):</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Shapefile and DEM do not overlap. Please check the coordinates."</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Shapefile and DEM overlap."</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"DEM bounds:"</span>, src.bounds)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shapefile bounds:"</span>, shape_data.total_bounds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Shapefile and DEM overlap.
@@ -298,19 +309,19 @@ DEM bounds: BoundingBox(left=-111.00055555639324, bottom=33.99944444340724, righ
 Shapefile bounds: [-111.00000001   34.24999995 -110.75000001   34.49999995]</code></pre>
 </div>
 </div></div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [23]:</pre></div><div id="0614c8a2-7ec9-4fd3-a7ac-e78c5bf62f2a" class="cell" data-execution_count="23">
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="0614c8a2-7ec9-4fd3-a7ac-e78c5bf62f2a" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Plot the DEM and shapefile to check overlap</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"DEM and Shapefile Overlay"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the DEM</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.imshow(dem_data, cmap<span class="op">=</span><span class="st">'terrain'</span>, extent<span class="op">=</span>[src.bounds.left, src.bounds.right, src.bounds.bottom, src.bounds.top])</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the shapefile geometry</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>shape_data.boundary.plot(ax<span class="op">=</span>plt.gca(), color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Plot the DEM and shapefile to check overlap</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"DEM and Shapefile Overlay"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the DEM</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.imshow(dem_data, cmap<span class="op">=</span><span class="st">'terrain'</span>, extent<span class="op">=</span>[src.bounds.left, src.bounds.right, src.bounds.bottom, src.bounds.top])</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the shapefile geometry</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>shape_data.boundary.plot(ax<span class="op">=</span>plt.gca(), color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="">
@@ -320,110 +331,30 @@ Shapefile bounds: [-111.00000001   34.24999995 -110.75000001   34.49999995]</cod
 </div>
 </div>
 </div></div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [28]:</pre></div><div id="d44d67e4-2f5d-4b4f-bed7-190722b9711f" class="cell" data-execution_count="28">
+<div id="8ccc886e-71fb-4e8b-ba00-00020902c0e3" class="cell markdown">
+<section id="using-the-whitebox_tools.py-script" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-whitebox_tools.py-script">Using the <em>Whitebox_tools.py</em> script</h3>
+<p><a href="https://www.whiteboxgeo.com/manual/wbt_book/python_scripting/using_whitebox_tools.html">Guide</a></p>
+</section>
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="48dd7f83-2cd9-4aa9-9130-b6e287e74fed" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the NoData value of the DEM</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NoData value in DEM:"</span>, dem_meta[<span class="st">'nodata'</span>])</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NoData values (if any) with NaN for easier visualization</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>masked_data <span class="op">=</span> out_image[<span class="dv">0</span>]</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>masked_data[masked_data <span class="op">==</span> dem_meta[<span class="st">'nodata'</span>]] <span class="op">=</span> <span class="bu">float</span>(<span class="st">'nan'</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the masked DEM</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Masked DEM with NoData handled"</span>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.imshow(masked_data, cmap<span class="op">=</span><span class="st">'terrain'</span>)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Elevation (m)'</span>)</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> whitebox_tools <span class="im">import</span> WhiteboxTools</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>wbt <span class="op">=</span> WhiteboxTools()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>NoData value in DEM: -999999.0</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div class="">
-<figure class="figure">
-<p class=""><a href="WoodsCanyonSinkholes_files/figure-html/cell-9-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="WoodsCanyonSinkholes_files/figure-html/cell-9-output-2.png" class="img-fluid figure-img"></a></p>
-</figure>
-</div>
-</div>
-</div></div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [30]:</pre></div><div id="c509d2c6-97f1-488a-895b-43e4840f9a77" class="cell" data-execution_count="30">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproject the shapefile to match the DEM CRS (EPSG:4269)</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>shape_data <span class="op">=</span> shape_data.to_crs(dem_meta[<span class="st">'crs'</span>])</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify CRS alignment</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shapefile CRS after reprojection:"</span>, shape_data.crs)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Masked DEM min value:"</span>, masked_data.<span class="bu">min</span>())</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Masked DEM max value:"</span>, masked_data.<span class="bu">max</span>())</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Masked DEM shape:"</span>, masked_data.shape)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"DEM CRS:"</span>, dem_meta[<span class="st">'crs'</span>])</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shapefile CRS:"</span>, shape_data.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Shapefile CRS after reprojection: GEOGCS["NAD83",DATUM["North_American_Datum_1983",SPHEROID["GRS 1980",6378137,298.257222101004,AUTHORITY["EPSG","7019"]],AUTHORITY["EPSG","6269"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4269"]]
-Masked DEM min value: nan
-Masked DEM max value: nan
-Masked DEM shape: (2701, 2701)
-DEM CRS: EPSG:4269
-Shapefile CRS: GEOGCS["NAD83",DATUM["North_American_Datum_1983",SPHEROID["GRS 1980",6378137,298.257222101004,AUTHORITY["EPSG","7019"]],AUTHORITY["EPSG","6269"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4269"]]</code></pre>
-</div>
-</div></div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [31]:</pre></div><div id="083295c7-a74d-4dee-9f07-e04870ad32e7" class="cell" data-execution_count="31">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Mask the DEM by the shapefile</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(dem_url) <span class="im">as</span> src:</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    out_image, out_transform <span class="op">=</span> mask(src, shape_data.geometry, crop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    out_meta <span class="op">=</span> src.meta.copy()</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Update the metadata to reflect the mask and cropping</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>out_meta.update({<span class="st">"driver"</span>: <span class="st">"GTiff"</span>, <span class="st">"height"</span>: out_image.shape[<span class="dv">1</span>], <span class="st">"width"</span>: out_image.shape[<span class="dv">2</span>], <span class="st">"transform"</span>: out_transform})</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the masked DEM to ensure the mask was applied correctly</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Masked DEM"</span>)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>plt.imshow(out_image[<span class="dv">0</span>], cmap<span class="op">=</span><span class="st">'terrain'</span>)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Elevation (m)'</span>)</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div class="">
-<figure class="figure">
-<p class=""><a href="WoodsCanyonSinkholes_files/figure-html/cell-11-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="WoodsCanyonSinkholes_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></a></p>
-</figure>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">ModuleNotFoundError</span>                       Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[12], line 1</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 1</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span> <span style="font-weight:bold;color:rgb(0,0,255)">whitebox_tools</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span> WhiteboxTools
+<span class="ansi-green-fg">      3</span> wbt <span style="color:rgb(98,98,98)">=</span> WhiteboxTools()
+
+<span class="ansi-red-fg ansi-bold">ModuleNotFoundError</span>: No module named 'whitebox_tools'</pre>
 </div>
 </div>
-</div></div>
-<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="1667a3f9-e0ee-4346-96fd-f18db8085363" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Reproject to UTM Zone 12N NAD 83 (2011)</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>utm_crs <span class="op">=</span> <span class="st">'EPSG:6341'</span>  <span class="co"># UTM Zone 12N NAD 83 (2011)</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>transform, width, height <span class="op">=</span> calculate_default_transform(</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    out_meta[<span class="st">'crs'</span>], utm_crs, out_meta[<span class="st">'width'</span>], out_meta[<span class="st">'height'</span>], <span class="op">*</span>src.bounds)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>out_meta.update({</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'crs'</span>: utm_crs,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transform'</span>: transform,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span>: width,</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span>: height</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Display the masked DEM with a terrain colormap</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>ls <span class="op">=</span> LightSource(azdeg<span class="op">=</span><span class="dv">315</span>, altdeg<span class="op">=</span><span class="dv">45</span>)  <span class="co"># Add lighting for terrain effect</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>hillshade <span class="op">=</span> ls.hillshade(out_image[<span class="dv">0</span>], vert_exag<span class="op">=</span><span class="dv">1</span>, dx<span class="op">=</span><span class="dv">1</span>, dy<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>plt.imshow(hillshade, cmap<span class="op">=</span><span class="st">'terrain'</span>)</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Elevation (m)'</span>)</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Terrain DEM'</span>)</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div></div>
      </main>
 <!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
@@ -896,7 +827,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

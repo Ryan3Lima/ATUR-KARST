@@ -107,10 +107,10 @@ Systems</institution>
 <corresp id="cor-1">ryan.lima@nau.edu</corresp>
 </author-notes>
 
-<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-09-06">
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-10-03">
 <year>2024</year>
-<month>9</month>
-<day>6</day>
+<month>10</month>
+<day>3</day>
 </pub-date>
 
 
@@ -162,7 +162,7 @@ recharge enhancement in the State of Arizona</p>
 <back>
 </back>
 
-<sub-article article-type="notebook" id="nb-11-nb-article">
+<sub-article article-type="notebook" id="nb-14-nb-article">
 <front-stub>
 <title-group>
 <article-title>Karst feature characterization to identify locations for
@@ -289,8 +289,7 @@ recharge enhancement in the State of Arizona</p>
 
 
 </sub-article>
-<!-- (F2ED4C6E)[nb-1]:/home/runner/work/ATUR-KARST/ATUR-KARST/notebooks/Lineament_extraction_testing.ipynb -->
-<sub-article article-type="notebook" id="nb-5-nb-2">
+<sub-article article-type="notebook" id="nb-3-nb-1">
 <front-stub>
 <title-group>
 <article-title>Testing sink hole delineation in the Woods Canyon
@@ -299,7 +298,7 @@ recharge enhancement in the State of Arizona</p>
 </front-stub>
 
 <body>
-<sec id="ad10176c-c6e3-4f48-a3b9-2917a7727ece-nb-2" specific-use="notebook-content">
+<sec id="ad10176c-c6e3-4f48-a3b9-2917a7727ece-nb-1" specific-use="notebook-content">
 <p>Testing sink hole delineation using the 1/3 arcsecond 10m 3DEP
 elevation dataset for the Woods Canyon 15 minute quad.</p>
 <p>Data from the Science Data Catalog</p>
@@ -341,13 +340,18 @@ the lidar point cloud and interferometric synthetic aperture radar
 (Ifsar) digital surface models and intensity images. All 3DEP products
 are public domain.</p>
 </sec>
-<sec id="cell-29bfd6bd-5319-4908-8760-e54d9cf05f68-nb-2" specific-use="notebook-content">
-<code language="python">#\ echo: false
-## install required libraries if not already installed 
+<sec id="cell-29bfd6bd-5319-4908-8760-e54d9cf05f68-nb-1" specific-use="notebook-content">
+<code language="python">## install required libraries if not already installed 
 #!pip install rasterio geopandas matplotlib
+!pip install whitebox -U
 </code>
+<boxed-text>
+  <preformat>Requirement already satisfied: whitebox in c:\users\rl587\appdata\local\anaconda3\lib\site-packages (2.3.5)
+Requirement already satisfied: Click&gt;=6.0 in c:\users\rl587\appdata\local\anaconda3\lib\site-packages (from whitebox) (8.1.7)
+Requirement already satisfied: colorama in c:\users\rl587\appdata\local\anaconda3\lib\site-packages (from Click&gt;=6.0-&gt;whitebox) (0.4.6)</preformat>
+</boxed-text>
 </sec>
-<sec id="cell-58643151-f216-404d-befa-93c526ba8027-nb-2" specific-use="notebook-content">
+<sec id="cell-58643151-f216-404d-befa-93c526ba8027-nb-1" specific-use="notebook-content">
 <p><bold>rasterio:</bold> A library used for reading and writing
 geospatial raster data (such as DEMs), with support for masking,
 reprojecting, and manipulating raster datasets.</p>
@@ -358,7 +362,7 @@ manipulation of vector data such as shapefiles.</p>
 for creating static, animated, and interactive visualizations, including
 map displays and colormaps for DEMs.</p>
 </sec>
-<sec id="e640acc4-a097-4b3b-874f-33a76ac97b4d-nb-2" specific-use="notebook-content">
+<sec id="e640acc4-a097-4b3b-874f-33a76ac97b4d-nb-1" specific-use="notebook-content">
 <code language="python">import rasterio
 import geopandas as gpd
 from rasterio.mask import mask
@@ -367,12 +371,12 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LightSource
 from shapely.geometry import box</code>
 </sec>
-<sec id="c294d4db-fd94-4d4f-a882-97841a89ace7-nb-2" specific-use="notebook-content">
+<sec id="c294d4db-fd94-4d4f-a882-97841a89ace7-nb-1" specific-use="notebook-content">
 <code language="python">dem_url = &quot;https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif&quot;
 shapefile_path = r&quot;G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp&quot;
 </code>
 </sec>
-<sec id="a56fdcc2-9e5b-41b5-ae23-5c99a539a658-nb-2" specific-use="notebook-content">
+<sec id="a56fdcc2-9e5b-41b5-ae23-5c99a539a658-nb-1" specific-use="notebook-content">
 <code language="python"># Step 1: Load the DEM from the National Map
 #dem_url = &quot;https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif&quot;
 
@@ -380,7 +384,7 @@ with rasterio.open(dem_url) as src:
     dem_data = src.read(1)
     dem_meta = src.meta</code>
 </sec>
-<sec id="cell-9796c5ac-7af0-4c4e-9a67-51fbc3ad6107-nb-2" specific-use="notebook-content">
+<sec id="cell-9796c5ac-7af0-4c4e-9a67-51fbc3ad6107-nb-1" specific-use="notebook-content">
 <code language="python"># Plot the DEM using imshow to allow colorbar creation
 plt.figure(figsize=(10, 10))
 plt.title(&quot;Loaded DEM&quot;)
@@ -391,7 +395,7 @@ plt.show()</code>
   <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-6-output-1.png" />
 </boxed-text>
 </sec>
-<sec id="b1d9c9f7-1511-4697-82e8-69a6ee9f3185-nb-2" specific-use="notebook-content">
+<sec id="b1d9c9f7-1511-4697-82e8-69a6ee9f3185-nb-1" specific-use="notebook-content">
 <code language="python"># Step 2: Load the shapefile for masking
 #shapefile_path = r&quot;G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp&quot;
 shape_data = gpd.read_file(shapefile_path)
@@ -415,7 +419,7 @@ DEM bounds: BoundingBox(left=-111.00055555639324, bottom=33.99944444340724, righ
 Shapefile bounds: [-111.00000001   34.24999995 -110.75000001   34.49999995]</preformat>
 </boxed-text>
 </sec>
-<sec id="cell-0614c8a2-7ec9-4fd3-a7ac-e78c5bf62f2a-nb-2" specific-use="notebook-content">
+<sec id="cell-0614c8a2-7ec9-4fd3-a7ac-e78c5bf62f2a-nb-1" specific-use="notebook-content">
 <code language="python"># Step 3: Plot the DEM and shapefile to check overlap
 plt.figure(figsize=(10, 10))
 plt.title(&quot;DEM and Shapefile Overlay&quot;)
@@ -430,91 +434,27 @@ plt.show()</code>
   <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-8-output-1.png" />
 </boxed-text>
 </sec>
-<sec id="d44d67e4-2f5d-4b4f-bed7-190722b9711f-nb-2" specific-use="notebook-content">
-<code language="python"># Check the NoData value of the DEM
-print(&quot;NoData value in DEM:&quot;, dem_meta['nodata'])
+<sec id="cell-8ccc886e-71fb-4e8b-ba00-00020902c0e3-nb-1" specific-use="notebook-content">
+<sec id="using-the-whitebox_tools.py-script-nb-1">
+  <title>Using the <italic>Whitebox_tools.py</italic> script</title>
+  <p><ext-link ext-link-type="uri" xlink:href="https://www.whiteboxgeo.com/manual/wbt_book/python_scripting/using_whitebox_tools.html">Guide</ext-link></p>
+  </sec>
+  <sec id="cell-48dd7f83-2cd9-4aa9-9130-b6e287e74fed-nb-1" specific-use="notebook-content">
+  <code language="python">from whitebox_tools import WhiteboxTools
 
-# Replace NoData values (if any) with NaN for easier visualization
-masked_data = out_image[0]
-masked_data[masked_data == dem_meta['nodata']] = float('nan')
+wbt = WhiteboxTools()
+  </code>
+  <boxed-text>
+    <preformat>ModuleNotFoundError: No module named 'whitebox_tools'
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [1;32mIn[12], line 1[0m
+[1;32m----&gt; 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mwhitebox_tools[39;00m [38;5;28;01mimport[39;00m WhiteboxTools
+[0;32m      3[0m wbt [38;5;241m=[39m WhiteboxTools()
 
-# Plot the masked DEM
-plt.figure(figsize=(10, 10))
-plt.title(&quot;Masked DEM with NoData handled&quot;)
-plt.imshow(masked_data, cmap='terrain')
-plt.colorbar(label='Elevation (m)')
-plt.show()
-</code>
-<boxed-text>
-  <preformat>NoData value in DEM: -999999.0</preformat>
-</boxed-text>
-<boxed-text>
-  <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-9-output-2.png" />
-</boxed-text>
-</sec>
-<sec id="c509d2c6-97f1-488a-895b-43e4840f9a77-nb-2" specific-use="notebook-content">
-<code language="python"># Reproject the shapefile to match the DEM CRS (EPSG:4269)
-shape_data = shape_data.to_crs(dem_meta['crs'])
-
-# Verify CRS alignment
-print(&quot;Shapefile CRS after reprojection:&quot;, shape_data.crs)
-
-print(&quot;Masked DEM min value:&quot;, masked_data.min())
-print(&quot;Masked DEM max value:&quot;, masked_data.max())
-print(&quot;Masked DEM shape:&quot;, masked_data.shape)
-
-print(&quot;DEM CRS:&quot;, dem_meta['crs'])
-print(&quot;Shapefile CRS:&quot;, shape_data.crs)</code>
-<boxed-text>
-  <preformat>Shapefile CRS after reprojection: GEOGCS[&quot;NAD83&quot;,DATUM[&quot;North_American_Datum_1983&quot;,SPHEROID[&quot;GRS 1980&quot;,6378137,298.257222101004,AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6269&quot;]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AXIS[&quot;Latitude&quot;,NORTH],AXIS[&quot;Longitude&quot;,EAST],AUTHORITY[&quot;EPSG&quot;,&quot;4269&quot;]]
-Masked DEM min value: nan
-Masked DEM max value: nan
-Masked DEM shape: (2701, 2701)
-DEM CRS: EPSG:4269
-Shapefile CRS: GEOGCS[&quot;NAD83&quot;,DATUM[&quot;North_American_Datum_1983&quot;,SPHEROID[&quot;GRS 1980&quot;,6378137,298.257222101004,AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6269&quot;]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AXIS[&quot;Latitude&quot;,NORTH],AXIS[&quot;Longitude&quot;,EAST],AUTHORITY[&quot;EPSG&quot;,&quot;4269&quot;]]</preformat>
-</boxed-text>
-</sec>
-<sec id="cell-083295c7-a74d-4dee-9f07-e04870ad32e7-nb-2" specific-use="notebook-content">
-<code language="python"># Step 3: Mask the DEM by the shapefile
-with rasterio.open(dem_url) as src:
-    out_image, out_transform = mask(src, shape_data.geometry, crop=True)
-    out_meta = src.meta.copy()
-
-# Update the metadata to reflect the mask and cropping
-out_meta.update({&quot;driver&quot;: &quot;GTiff&quot;, &quot;height&quot;: out_image.shape[1], &quot;width&quot;: out_image.shape[2], &quot;transform&quot;: out_transform})
-
-# Plot the masked DEM to ensure the mask was applied correctly
-plt.figure(figsize=(10, 10))
-plt.title(&quot;Masked DEM&quot;)
-plt.imshow(out_image[0], cmap='terrain')
-plt.colorbar(label='Elevation (m)')
-plt.show()</code>
-<boxed-text>
-  <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-11-output-1.png" />
-</boxed-text>
-</sec>
-<sec id="cell-1667a3f9-e0ee-4346-96fd-f18db8085363-nb-2" specific-use="notebook-content">
-<code language="python"># Step 4: Reproject to UTM Zone 12N NAD 83 (2011)
-utm_crs = 'EPSG:6341'  # UTM Zone 12N NAD 83 (2011)
-
-transform, width, height = calculate_default_transform(
-    out_meta['crs'], utm_crs, out_meta['width'], out_meta['height'], *src.bounds)
-out_meta.update({
-    'crs': utm_crs,
-    'transform': transform,
-    'width': width,
-    'height': height
-})
-
-# Step 5: Display the masked DEM with a terrain colormap
-ls = LightSource(azdeg=315, altdeg=45)  # Add lighting for terrain effect
-hillshade = ls.hillshade(out_image[0], vert_exag=1, dx=1, dy=1)
-
-plt.figure(figsize=(10, 10))
-plt.imshow(hillshade, cmap='terrain')
-plt.colorbar(label='Elevation (m)')
-plt.title('Terrain DEM')
-plt.show()</code>
+[1;31mModuleNotFoundError[0m: No module named 'whitebox_tools'</preformat>
+  </boxed-text>
+  </sec>
 </sec>
 </body>
 
@@ -525,12 +465,12 @@ plt.show()</code>
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-8-nb-3">
+<sub-article article-type="notebook" id="nb-6-nb-2">
 <front-stub>
 </front-stub>
 
 <body>
-<sec id="cell-486a6569-6b42-4c38-9c66-ccdfffd5c7b3-nb-3" specific-use="notebook-content">
+<sec id="cell-486a6569-6b42-4c38-9c66-ccdfffd5c7b3-nb-2" specific-use="notebook-content">
 <code language="python">---
 title: Karst feature characterization to identify locations for opportunistic recharge enhancement in Arizona
 author:
@@ -586,7 +526,7 @@ citation:
 number-sections: true
 ---</code>
 </sec>
-<sec id="ba35528e-110c-41d9-9c08-318be1efeff2-nb-3" specific-use="notebook-content">
+<sec id="ba35528e-110c-41d9-9c08-318be1efeff2-nb-2" specific-use="notebook-content">
 <code language="python">## Introduction
 </code>
 </sec>
@@ -599,5 +539,42 @@ number-sections: true
 
 
 </sub-article>
+<sub-article article-type="notebook" id="nb-9-nb-3">
+<front-stub>
+</front-stub>
+
+<body>
+<sec id="cell-6bf7dfe6-0616-4c13-a416-64b61cd945c0-nb-3" specific-use="notebook-content">
+<code language="python">import os
+import pkg_resources
+import whitebox
+from WBT.whitebox_tools import WhiteboxTools
+wbt = WhiteboxTools()
+wbt.install_wbt_extension()
+</code>
+<boxed-text>
+  <preformat>ModuleNotFoundError: No module named 'WBT'
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [1;32mIn[1], line 4[0m
+[0;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mpkg_resources[39;00m
+[0;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mwhitebox[39;00m
+[1;32m----&gt; 4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mWBT[39;00m[38;5;21;01m.[39;00m[38;5;21;01mwhitebox_tools[39;00m [38;5;28;01mimport[39;00m WhiteboxTools
+[0;32m      5[0m wbt [38;5;241m=[39m WhiteboxTools()
+[0;32m      6[0m wbt[38;5;241m.[39minstall_wbt_extension()
+
+[1;31mModuleNotFoundError[0m: No module named 'WBT'</preformat>
+</boxed-text>
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<!-- (F2ED4C6E)[nb-4]:/home/runner/work/ATUR-KARST/ATUR-KARST/notebooks/Lineament_extraction_testing.ipynb -->
 
 </article>
