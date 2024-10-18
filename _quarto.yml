@@ -1,5 +1,5 @@
 project:
-  type: manuscript
+  type: Website
 format:
   html:
     toc: true
