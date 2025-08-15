@@ -23,8 +23,8 @@ and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
 
 
 <title-group>
-<article-title>Karst feature characterization to identify locations for
-opportunistic recharge enhancement in Arizona</article-title>
+<article-title>Karst Recharge in Arizona</article-title>
+<subtitle>Opportunities, Challenges, and Recommendations</subtitle>
 </title-group>
 
 <contrib-group>
@@ -107,10 +107,10 @@ Systems</institution>
 <corresp id="cor-1">ryan.lima@nau.edu</corresp>
 </author-notes>
 
-<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-10-03">
-<year>2024</year>
-<month>10</month>
-<day>3</day>
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2025-08-15">
+<year>2025</year>
+<month>8</month>
+<day>15</day>
 </pub-date>
 
 
@@ -123,9 +123,8 @@ Systems</institution>
 
 
 <abstract>
-<p>This research utlizes remote sensing and GIS to characterize karst
-surface features and map areas suitable for opportunistic groundwater
-recharge enhancement in the State of Arizona</p>
+<p>This report is a summary of karst research and opportunities for
+recharge enhancement in Arizona.</p>
 </abstract>
 <kwd-group kwd-group-type="author">
 <kwd>Karst</kwd>
@@ -142,17 +141,297 @@ recharge enhancement in the State of Arizona</p>
 </front>
 
 <body>
-<sec id="introduction">
-  <title>1 Introduction</title>
+<sec id="executive-summary">
+  <title>1 Executive Summary</title>
+  <p>Karst or karst-prone lithologies underlie much of Arizona.
+  Evaporites (~7%), carbonates (~12%), volcanic pseudo-karst (~3%), and
+  piping pseudokarst (~1%) collectively cover about 30% of the state.
+  Evaporite basins and gypsum bearing units underly 8% and 48% of the
+  state respectively. Karst aquifers are critical to arizona’s water
+  resources, they support municipal water supplies, sustain baseflow in
+  rivers and streams, and feed ecologically important springs.</p>
+  <p>In the arid western United States, where nearly all surface water
+  is allocated or over-allocated, karst landscapes–characterized by
+  internal drainage, rapid infiltration, and direct connection between
+  surface and groundwater–offer unique opportunities for recharge
+  enhacement without diverting water that would otherwise flow into
+  regulated rivers or streams.</p>
+  <p>However, the characteristics that make karst aquifers ideal for
+  recharge also make them particularly vulnerable to contamination. The
+  high hydrulic conductiity of karst conduits allows contaminants to
+  move quickly with little natural attenuation, creating elevated risks
+  to drinking water and sensitive ecosystems. Enhancing recharge in
+  karst areas and protecting water quality both require informed and
+  deliberate land-use planning, thoughtful water source potection, and
+  would benefit from coordinated research and targeted monitoring.
+  Expaning research efforts and creating a comprehensive state-wide
+  databse of karst features–including sinkhole, sinkhing streams,
+  springs, and subsurface connections–will provide the foundation for
+  effetive management, protection, and the sustainable use of water
+  resources in Arizona’s karst landscapes.</p>
+  <fig>
+    <caption><p>Arizona Karst Map</p></caption>
+    <graphic mimetype="image" mime-subtype="png" xlink:href="images/AZKarstMapsmall.png" />
+  </fig>
 </sec>
-<sec id="sec-data-methods">
-  <title>2 Data &amp; Methods</title>
+<sec id="introduction">
+  <title>2 Introduction</title>
+  <sec id="what-is-karst">
+    <title>2.1 What is Karst?</title>
+    <p>Karst is a distinctive type of landscape and hydrogeologic system
+    formed through the dissolution of soluble rocks such as limestone,
+    dolostone, and evaporites [Ford and Williams, 2007; Taylor &amp;
+    Green, 2008]. The process of karstification creates characteristic
+    landforms and hydrologic features including sinkholes (dolines),
+    caves, sinking streams, and springs. Hydrologically, karst terrains
+    are defiend by partial or complete internal drainage, rapid
+    infiltration, and conduit-dominated groundwater flows. Globally,
+    carbonate rocks over about 15% of the earth’s land surface (Vilhar
+    et al., 2022) and contribute disproportionately to global
+    groundwater resources, particularly in arid and semi-arid
+    regions.</p>
+  </sec>
+  <sec id="why-is-karst-matters-in-arizona">
+    <title>2.2 Why is Karst Matters in Arizona</title>
+  </sec>
+  <sec id="purpose-of-this-report">
+    <title>2.3 Purpose of this report</title>
+    <list list-type="order">
+      <list-item>
+        <p>Synthesize existing knowledge about the extent,
+        characteristics, and hydrologic role of Arizona’s karst systems,
+        with detailed examples from the Kaibab Plateau and Mogollon Rim
+        where recharge processes have been most studied.</p>
+      </list-item>
+      <list-item>
+        <p>Highlight current data gaps, including the lack of a
+        statewide karst feature database, incomplete 1:24,000 geologic
+        mapping in karst-prone regions, limited dye tracing, and
+        insufficient integration of lineament and sinkhole mapping.</p>
+      </list-item>
+      <list-item>
+        <p>Provide recommendations for advancing karst science and
+        management in Arizona, including coordinated mapping, research,
+        and interagency collaboration to protect water quality and
+        leverage recharge opportunities.</p>
+      </list-item>
+    </list>
+  </sec>
+</sec>
+<sec id="sinkholes-indicators-of-karst-recharge">
+  <title>3 Sinkholes: Indicators of Karst Recharge</title>
+  <p>Sinkholes (or dolines) are internaly draining depression up to 1km
+  wide and hundreds of meters deep [Ford and Williams, 2007]. They are
+  considered <italic>index landforms</italic> for karst, indicating
+  subsurface conduit development and vertical permeability.</p>
+</sec>
+<sec id="karst-terrains-of-arizona">
+  <title>4 Karst Terrains of Arizona</title>
+  <sec id="carbonate-karst-provinces">
+    <title>4.1 Carbonate Karst Provinces</title>
+    <sec id="kaibab-plateau-grand-canyon">
+      <title>4.1.1 Kaibab Plateau &amp; Grand Canyon</title>
+      <disp-quote>
+        <p>Karstified Kaibab Limestone and the Redwall–Muav aquifer feed
+        major springs like Roaring Springs (Hill &amp; Polyak,
+        2010).</p>
+      </disp-quote>
+      <disp-quote>
+        <p>Recharge sources include snowmelt, monsoon rain, and focused
+        infiltration via sinkholes, fractures, and breccia pipes.</p>
+      </disp-quote>
+      <disp-quote>
+        <p>Dye tracing (Jones et al., 2018; Hansen, 2019) has confirmed
+        large conduit systems and climate-sensitive flow patterns
+        (Donovan et al., 2022).</p>
+      </disp-quote>
+    </sec>
+    <sec id="mogollon-rim-verde-valley">
+      <title>4.1.2 Mogollon Rim &amp; Verde Valley</title>
+      <disp-quote>
+        <p>Thick Paleozoic carbonates exposed along the escarpment
+        recharge the C-aquifer and underlying limestones (Parker et al.,
+        2004).</p>
+      </disp-quote>
+      <disp-quote>
+        <p>~1.73 million acre-feet of precipitation falls annually; ~8%
+        recharges regional aquifers, with 40% of limestone aquifer
+        recharge from C-aquifer leakage.</p>
+      </disp-quote>
+    </sec>
+  </sec>
+  <sec id="evaporite-karst-provinces">
+    <title>4.2 Evaporite Karst Provinces</title>
+    <sec id="holbrook-basin">
+      <title>4.2.1 Holbrook Basin</title>
+      <list list-type="bullet">
+        <list-item>
+          <p>More than 500 fissures and sinkholes from dissolution of
+          Permian Supai salt and gypsum (Neal, 1998; Neal &amp;
+          Colpitts, 1997a).</p>
+        </list-item>
+      </list>
+      <p><bold>Features include:</bold></p>
+      <disp-quote>
+        <p>Dry Lake Valley – 325 km² internally drained basin with
+        active sinkhole formation.</p>
+      </disp-quote>
+      <disp-quote>
+        <p>The Sinks – &gt;300 features near Snowflake; concentrated
+        along the Holbrook Anticline.</p>
+      </disp-quote>
+      <disp-quote>
+        <p>McCauley Sinks – &gt;50 deep sinkholes, possibly composite
+        breccia pipes.</p>
+      </disp-quote>
+      <disp-quote>
+        <p>Richard Lake, Ortega Sink, Navajo Springs – internally
+        drained basins with large collapse features.</p>
+      </disp-quote>
+      <list list-type="bullet">
+        <list-item>
+          <p>Collapse propagates upward from dissolved salt beds,
+          deforming overlying Coconino Sandstone and Kaibab
+          Limestone.</p>
+        </list-item>
+      </list>
+    </sec>
+  </sec>
+  <sec id="special-karst-features">
+    <title>4.3 Special Karst Features</title>
+    <p><bold>Breccia Pipes (Northern Arizona)</bold></p>
+    <list list-type="bullet">
+      <list-item>
+        <p>Vertical, pipe-like collapse structures in Paleozoic and
+        Triassic strata, typically tens of meters wide and hundreds of
+        meters deep.</p>
+      </list-item>
+      <list-item>
+        <p>Formed by dissolution of Redwall Limestone along fractures,
+        causing collapse of overlying rocks.</p>
+      </list-item>
+    </list>
+    <disp-quote>
+      <p>At least 1,300 identified in the Grand Canyon region (Sutphin
+      &amp; Wenrich, 1989; Brown &amp; Billingsley, 2010).</p>
+    </disp-quote>
+    <disp-quote>
+      <p>Some host uranium ore (Wenrich &amp; Titley, 2008); others may
+      have acted as ancient recharge pathways.</p>
+    </disp-quote>
+    <p><bold>Hypogene Karst in Grand Canyon</bold></p>
+    <list list-type="bullet">
+      <list-item>
+        <p>Confined caves in Redwall Limestone (hypogene origin) and
+        unconfined caves in Muav Limestone.</p>
+      </list-item>
+      <list-item>
+        <p>Hypogene systems formed by fluids rising from depth, not just
+        surface infiltration (Hill &amp; Polyak, 2010).</p>
+      </list-item>
+    </list>
+  </sec>
+</sec>
+<sec id="methods-for-mapping-karst-vulnerability-and-recharge-potential">
+  <title>5 Methods for Mapping Karst Vulnerability and Recharge
+  Potential</title>
+</sec>
+<sec id="current-work-and-data-gaps">
+  <title>6 Current Work and Data Gaps</title>
+  <p><bold>Current progress</bold></p>
+  <list list-type="bullet">
+    <list-item>
+      <p>Grand Canyon National Park has a well-established karst
+      inventory and ongoing research on hypogene caves and recharge
+      dynamics through dry tracing and springs monitoring.</p>
+    </list-item>
+    <list-item>
+      <p>Statewide lineament mapping has been completed using 10m DEMs,
+      however work is needed to validate and refine these features.</p>
+    </list-item>
+    <list-item>
+      <p>Mogollon Rim sinkhole mapping in progress.</p>
+    </list-item>
+    <list-item>
+      <p>Springer Lab has been monitoring springs in the Kaibab Plateau
+      and Mogollon Rim areas, focusing on water quality and flow
+      dynamics.</p>
+    </list-item>
+    <list-item>
+      <p>Springer lab recently aquired a benchtop flourescence
+      spectrometer to support dye tracing and water quality
+      monitoring.</p>
+    </list-item>
+  </list>
+  <p><bold>Data gaps</bold></p>
+  <list list-type="order">
+    <list-item>
+      <p>No Statewide karst feature database exists, limiting
+      understanding of karst distribution and recharge potential.</p>
+    </list-item>
+    <list-item>
+      <p>Incomplete 1:24k geologic mapping in karst terrains.</p>
+    </list-item>
+    <list-item>
+      <p>limited dye tracing beyond the Kaibab Plateau and Grand
+      Canyon.</p>
+    </list-item>
+    <list-item>
+      <p>Lack of coordinated interagency approach to karst research and
+      management.</p>
+    </list-item>
+  </list>
+</sec>
+<sec id="recommendations">
+  <title>7 Recommendations</title>
+  <list list-type="order">
+    <list-item>
+      <p>Establish Arizona Karst Feature Database – consolidate
+      sinkholes, caves, springs, breccia pipes, and dye-trace
+      results.</p>
+    </list-item>
+    <list-item>
+      <p>Complete 1:24k mapping in carbonate and evaporite belts.</p>
+    </list-item>
+    <list-item>
+      <p>Expand dye tracing &amp; spring monitoring statewide.</p>
+    </list-item>
+    <list-item>
+      <p>Integrate sinkhole and lineament datasets to target ORE and MAR
+      sites.</p>
+    </list-item>
+    <list-item>
+      <p>Form Arizona Karst Working Group – AZGS, USGS, NPS, USFS, ADWR,
+      universities.</p>
+    </list-item>
+    <list-item>
+      <p>Coordinate with Grand Canyon’s karst program for method
+      transfer and joint research.</p>
+    </list-item>
+  </list>
 </sec>
 <sec id="conclusion">
-  <title>3 Conclusion</title>
+  <title>8 Conclusion</title>
+  <list list-type="bullet">
+    <list-item>
+      <p>Arizona’s karst aquifers represent a significant, but
+      under-documented, water resource.</p>
+    </list-item>
+    <list-item>
+      <p>Recharge opportunities exist, espeically in high-karst areas
+      like the Kaibab Plateau and Mogollon Rim</p>
+    </list-item>
+    <list-item>
+      <p>Coordinated, well-funded statewide effort could unlock these
+      opoprtunities and improve both water supply and ecosystem
+      reslience.</p>
+    </list-item>
+  </list>
 </sec>
 <sec id="literature-reviewed">
-  <title>4 Literature Reviewed</title>
+  <title>9 Literature Reviewed</title>
+  <p><ext-link ext-link-type="uri" xlink:href="https://docs.google.com/spreadsheets/d/1DqNXqxHH6nxKWdOpNTpD1daRn8tsU53mV59tp-z9eVA/edit?usp=sharing">Link
+  to Google Doc</ext-link></p>
 </sec>
 <sec id="references">
   <title>References</title>
@@ -162,11 +441,11 @@ recharge enhancement in the State of Arizona</p>
 <back>
 </back>
 
-<sub-article article-type="notebook" id="nb-14-nb-article">
+<sub-article article-type="notebook" id="nb-3-nb-article">
 <front-stub>
 <title-group>
-<article-title>Karst feature characterization to identify locations for
-opportunistic recharge enhancement in Arizona</article-title>
+<article-title>Karst Recharge in Arizona</article-title>
+<subtitle>Opportunities, Challenges, and Recommendations</subtitle>
 </title-group>
 <contrib-group>
 <contrib contrib-type="author" corresp="yes">
@@ -248,33 +527,322 @@ Systems</institution>
 <corresp id="cor-1-nb-article">ryan.lima@nau.edu</corresp>
 </author-notes>
 <abstract>
-<p>This research utlizes remote sensing and GIS to characterize karst
-surface features and map areas suitable for opportunistic groundwater
-recharge enhancement in the State of Arizona</p>
+<p>This report is a summary of karst research and opportunities for
+recharge enhancement in Arizona.</p>
 </abstract>
 </front-stub>
 
 <body>
 <sec id="cell-1-nb-article" specific-use="notebook-content">
-<sec id="introduction-nb-article">
-  <title>1 Introduction</title>
+<sec id="executive-summary-nb-article">
+  <title>1 Executive Summary</title>
+  <p>Karst or karst-prone lithologies underlie much of Arizona.
+  Evaporites (~7%), carbonates (~12%), volcanic pseudo-karst (~3%), and
+  piping pseudokarst (~1%) collectively cover about 30% of the state.
+  Evaporite basins and gypsum bearing units underly 8% and 48% of the
+  state respectively. Karst aquifers are critical to arizona’s water
+  resources, they support municipal water supplies, sustain baseflow in
+  rivers and streams, and feed ecologically important springs.</p>
+  <p>In the arid western United States, where nearly all surface water
+  is allocated or over-allocated, karst landscapes–characterized by
+  internal drainage, rapid infiltration, and direct connection between
+  surface and groundwater–offer unique opportunities for recharge
+  enhacement without diverting water that would otherwise flow into
+  regulated rivers or streams.</p>
+  <p>However, the characteristics that make karst aquifers ideal for
+  recharge also make them particularly vulnerable to contamination. The
+  high hydrulic conductiity of karst conduits allows contaminants to
+  move quickly with little natural attenuation, creating elevated risks
+  to drinking water and sensitive ecosystems. Enhancing recharge in
+  karst areas and protecting water quality both require informed and
+  deliberate land-use planning, thoughtful water source potection, and
+  would benefit from coordinated research and targeted monitoring.
+  Expaning research efforts and creating a comprehensive state-wide
+  databse of karst features–including sinkhole, sinkhing streams,
+  springs, and subsurface connections–will provide the foundation for
+  effetive management, protection, and the sustainable use of water
+  resources in Arizona’s karst landscapes.</p>
+  <fig>
+    <caption><p>Arizona Karst Map</p></caption>
+    <graphic mimetype="image" mime-subtype="png" xlink:href="images/AZKarstMapsmall.png" />
+  </fig>
   </sec>
   <sec id="cell-2-nb-article" specific-use="notebook-content">
 </sec>
-<sec id="sec-data-methods-nb-article">
-  <title>2 Data &amp; Methods</title>
+<sec id="introduction-nb-article">
+  <title>2 Introduction</title>
+  <sec id="what-is-karst-nb-article">
+    <title>2.1 What is Karst?</title>
+    <p>Karst is a distinctive type of landscape and hydrogeologic system
+    formed through the dissolution of soluble rocks such as limestone,
+    dolostone, and evaporites [Ford and Williams, 2007; Taylor &amp;
+    Green, 2008]. The process of karstification creates characteristic
+    landforms and hydrologic features including sinkholes (dolines),
+    caves, sinking streams, and springs. Hydrologically, karst terrains
+    are defiend by partial or complete internal drainage, rapid
+    infiltration, and conduit-dominated groundwater flows. Globally,
+    carbonate rocks over about 15% of the earth’s land surface (Vilhar
+    et al., 2022) and contribute disproportionately to global
+    groundwater resources, particularly in arid and semi-arid
+    regions.</p>
   </sec>
-  <sec id="cell-3-nb-article" specific-use="notebook-content">
+  <sec id="why-is-karst-matters-in-arizona-nb-article">
+    <title>2.2 Why is Karst Matters in Arizona</title>
+  </sec>
+  <sec id="purpose-of-this-report-nb-article">
+    <title>2.3 Purpose of this report</title>
+    <list list-type="order">
+      <list-item>
+        <p>Synthesize existing knowledge about the extent,
+        characteristics, and hydrologic role of Arizona’s karst systems,
+        with detailed examples from the Kaibab Plateau and Mogollon Rim
+        where recharge processes have been most studied.</p>
+      </list-item>
+      <list-item>
+        <p>Highlight current data gaps, including the lack of a
+        statewide karst feature database, incomplete 1:24,000 geologic
+        mapping in karst-prone regions, limited dye tracing, and
+        insufficient integration of lineament and sinkhole mapping.</p>
+      </list-item>
+      <list-item>
+        <p>Provide recommendations for advancing karst science and
+        management in Arizona, including coordinated mapping, research,
+        and interagency collaboration to protect water quality and
+        leverage recharge opportunities.</p>
+      </list-item>
+    </list>
+    </sec>
+    <sec id="cell-3-nb-article" specific-use="notebook-content">
+  </sec>
 </sec>
-<sec id="conclusion-nb-article">
-  <title>3 Conclusion</title>
+<sec id="sinkholes-indicators-of-karst-recharge-nb-article">
+  <title>3 Sinkholes: Indicators of Karst Recharge</title>
+  <p>Sinkholes (or dolines) are internaly draining depression up to 1km
+  wide and hundreds of meters deep [Ford and Williams, 2007]. They are
+  considered <italic>index landforms</italic> for karst, indicating
+  subsurface conduit development and vertical permeability.</p>
   </sec>
   <sec id="cell-4-nb-article" specific-use="notebook-content">
 </sec>
-<sec id="literature-reviewed-nb-article">
-  <title>4 Literature Reviewed</title>
+<sec id="karst-terrains-of-arizona-nb-article">
+  <title>4 Karst Terrains of Arizona</title>
+  <sec id="carbonate-karst-provinces-nb-article">
+    <title>4.1 Carbonate Karst Provinces</title>
+    <sec id="kaibab-plateau-grand-canyon-nb-article">
+      <title>4.1.1 Kaibab Plateau &amp; Grand Canyon</title>
+      <disp-quote>
+        <p>Karstified Kaibab Limestone and the Redwall–Muav aquifer feed
+        major springs like Roaring Springs (Hill &amp; Polyak,
+        2010).</p>
+      </disp-quote>
+      <disp-quote>
+        <p>Recharge sources include snowmelt, monsoon rain, and focused
+        infiltration via sinkholes, fractures, and breccia pipes.</p>
+      </disp-quote>
+      <disp-quote>
+        <p>Dye tracing (Jones et al., 2018; Hansen, 2019) has confirmed
+        large conduit systems and climate-sensitive flow patterns
+        (Donovan et al., 2022).</p>
+      </disp-quote>
+    </sec>
+    <sec id="mogollon-rim-verde-valley-nb-article">
+      <title>4.1.2 Mogollon Rim &amp; Verde Valley</title>
+      <disp-quote>
+        <p>Thick Paleozoic carbonates exposed along the escarpment
+        recharge the C-aquifer and underlying limestones (Parker et al.,
+        2004).</p>
+      </disp-quote>
+      <disp-quote>
+        <p>~1.73 million acre-feet of precipitation falls annually; ~8%
+        recharges regional aquifers, with 40% of limestone aquifer
+        recharge from C-aquifer leakage.</p>
+      </disp-quote>
+    </sec>
+  </sec>
+  <sec id="evaporite-karst-provinces-nb-article">
+    <title>4.2 Evaporite Karst Provinces</title>
+    <sec id="holbrook-basin-nb-article">
+      <title>4.2.1 Holbrook Basin</title>
+      <list list-type="bullet">
+        <list-item>
+          <p>More than 500 fissures and sinkholes from dissolution of
+          Permian Supai salt and gypsum (Neal, 1998; Neal &amp;
+          Colpitts, 1997a).</p>
+        </list-item>
+      </list>
+      <p><bold>Features include:</bold></p>
+      <disp-quote>
+        <p>Dry Lake Valley – 325 km² internally drained basin with
+        active sinkhole formation.</p>
+      </disp-quote>
+      <disp-quote>
+        <p>The Sinks – &gt;300 features near Snowflake; concentrated
+        along the Holbrook Anticline.</p>
+      </disp-quote>
+      <disp-quote>
+        <p>McCauley Sinks – &gt;50 deep sinkholes, possibly composite
+        breccia pipes.</p>
+      </disp-quote>
+      <disp-quote>
+        <p>Richard Lake, Ortega Sink, Navajo Springs – internally
+        drained basins with large collapse features.</p>
+      </disp-quote>
+      <list list-type="bullet">
+        <list-item>
+          <p>Collapse propagates upward from dissolved salt beds,
+          deforming overlying Coconino Sandstone and Kaibab
+          Limestone.</p>
+        </list-item>
+      </list>
+    </sec>
+  </sec>
+  <sec id="special-karst-features-nb-article">
+    <title>4.3 Special Karst Features</title>
+    <p><bold>Breccia Pipes (Northern Arizona)</bold></p>
+    <list list-type="bullet">
+      <list-item>
+        <p>Vertical, pipe-like collapse structures in Paleozoic and
+        Triassic strata, typically tens of meters wide and hundreds of
+        meters deep.</p>
+      </list-item>
+      <list-item>
+        <p>Formed by dissolution of Redwall Limestone along fractures,
+        causing collapse of overlying rocks.</p>
+      </list-item>
+    </list>
+    <disp-quote>
+      <p>At least 1,300 identified in the Grand Canyon region (Sutphin
+      &amp; Wenrich, 1989; Brown &amp; Billingsley, 2010).</p>
+    </disp-quote>
+    <disp-quote>
+      <p>Some host uranium ore (Wenrich &amp; Titley, 2008); others may
+      have acted as ancient recharge pathways.</p>
+    </disp-quote>
+    <p><bold>Hypogene Karst in Grand Canyon</bold></p>
+    <list list-type="bullet">
+      <list-item>
+        <p>Confined caves in Redwall Limestone (hypogene origin) and
+        unconfined caves in Muav Limestone.</p>
+      </list-item>
+      <list-item>
+        <p>Hypogene systems formed by fluids rising from depth, not just
+        surface infiltration (Hill &amp; Polyak, 2010).</p>
+      </list-item>
+    </list>
+    </sec>
+    <sec id="cell-5-nb-article" specific-use="notebook-content">
+  </sec>
+</sec>
+<sec id="methods-for-mapping-karst-vulnerability-and-recharge-potential-nb-article">
+  <title>5 Methods for Mapping Karst Vulnerability and Recharge
+  Potential</title>
   </sec>
   <sec id="cell-6-nb-article" specific-use="notebook-content">
+</sec>
+<sec id="current-work-and-data-gaps-nb-article">
+  <title>6 Current Work and Data Gaps</title>
+  <p><bold>Current progress</bold></p>
+  <list list-type="bullet">
+    <list-item>
+      <p>Grand Canyon National Park has a well-established karst
+      inventory and ongoing research on hypogene caves and recharge
+      dynamics through dry tracing and springs monitoring.</p>
+    </list-item>
+    <list-item>
+      <p>Statewide lineament mapping has been completed using 10m DEMs,
+      however work is needed to validate and refine these features.</p>
+    </list-item>
+    <list-item>
+      <p>Mogollon Rim sinkhole mapping in progress.</p>
+    </list-item>
+    <list-item>
+      <p>Springer Lab has been monitoring springs in the Kaibab Plateau
+      and Mogollon Rim areas, focusing on water quality and flow
+      dynamics.</p>
+    </list-item>
+    <list-item>
+      <p>Springer lab recently aquired a benchtop flourescence
+      spectrometer to support dye tracing and water quality
+      monitoring.</p>
+    </list-item>
+  </list>
+  <p><bold>Data gaps</bold></p>
+  <list list-type="order">
+    <list-item>
+      <p>No Statewide karst feature database exists, limiting
+      understanding of karst distribution and recharge potential.</p>
+    </list-item>
+    <list-item>
+      <p>Incomplete 1:24k geologic mapping in karst terrains.</p>
+    </list-item>
+    <list-item>
+      <p>limited dye tracing beyond the Kaibab Plateau and Grand
+      Canyon.</p>
+    </list-item>
+    <list-item>
+      <p>Lack of coordinated interagency approach to karst research and
+      management.</p>
+    </list-item>
+  </list>
+  </sec>
+  <sec id="cell-7-nb-article" specific-use="notebook-content">
+</sec>
+<sec id="recommendations-nb-article">
+  <title>7 Recommendations</title>
+  <list list-type="order">
+    <list-item>
+      <p>Establish Arizona Karst Feature Database – consolidate
+      sinkholes, caves, springs, breccia pipes, and dye-trace
+      results.</p>
+    </list-item>
+    <list-item>
+      <p>Complete 1:24k mapping in carbonate and evaporite belts.</p>
+    </list-item>
+    <list-item>
+      <p>Expand dye tracing &amp; spring monitoring statewide.</p>
+    </list-item>
+    <list-item>
+      <p>Integrate sinkhole and lineament datasets to target ORE and MAR
+      sites.</p>
+    </list-item>
+    <list-item>
+      <p>Form Arizona Karst Working Group – AZGS, USGS, NPS, USFS, ADWR,
+      universities.</p>
+    </list-item>
+    <list-item>
+      <p>Coordinate with Grand Canyon’s karst program for method
+      transfer and joint research.</p>
+    </list-item>
+  </list>
+  </sec>
+  <sec id="cell-8-nb-article" specific-use="notebook-content">
+</sec>
+<sec id="conclusion-nb-article">
+  <title>8 Conclusion</title>
+  <list list-type="bullet">
+    <list-item>
+      <p>Arizona’s karst aquifers represent a significant, but
+      under-documented, water resource.</p>
+    </list-item>
+    <list-item>
+      <p>Recharge opportunities exist, espeically in high-karst areas
+      like the Kaibab Plateau and Mogollon Rim</p>
+    </list-item>
+    <list-item>
+      <p>Coordinated, well-funded statewide effort could unlock these
+      opoprtunities and improve both water supply and ecosystem
+      reslience.</p>
+    </list-item>
+  </list>
+  </sec>
+  <sec id="cell-9-nb-article" specific-use="notebook-content">
+</sec>
+<sec id="literature-reviewed-nb-article">
+  <title>9 Literature Reviewed</title>
+  <p><ext-link ext-link-type="uri" xlink:href="https://docs.google.com/spreadsheets/d/1DqNXqxHH6nxKWdOpNTpD1daRn8tsU53mV59tp-z9eVA/edit?usp=sharing">Link
+  to Google Doc</ext-link></p>
+  </sec>
+  <sec id="cell-11-nb-article" specific-use="notebook-content">
 </sec>
 <sec id="references-nb-article">
   <title>References</title>
@@ -289,292 +857,5 @@ recharge enhancement in the State of Arizona</p>
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-3-nb-1">
-<front-stub>
-<title-group>
-<article-title>Testing sink hole delineation in the Woods Canyon
-15-minute quad</article-title>
-</title-group>
-</front-stub>
-
-<body>
-<sec id="ad10176c-c6e3-4f48-a3b9-2917a7727ece-nb-1" specific-use="notebook-content">
-<p>Testing sink hole delineation using the 1/3 arcsecond 10m 3DEP
-elevation dataset for the Woods Canyon 15 minute quad.</p>
-<p>Data from the Science Data Catalog</p>
-<p><bold>Dataset:</bold>
-<ext-link ext-link-type="uri" xlink:href="https://data.usgs.gov/datacatalog/data/USGS:3a81321b-c153-416f-98b7-cc8e5f0e17c3">1/3
-arc-second Digital Elevation Models (DEMS) - USGS National Map 3DEP
-Downloadable Data Collection</ext-link></p>
-<p><bold>Description:</bold> This is a tiled collection of the 3D
-Elevation Program (3DEP) and is 1/3 arc-second (approximately 10 m)
-resolution. The 3DEP data holdings serve as the elevation layer of The
-National Map, and provide foundational elevation information for earth
-science studies and mapping applications in the United States.
-Scientists and resource managers use 3DEP data for hydrologic modeling,
-resource monitoring, mapping and visualization, and many other
-applications. The elevations in this DEM represent the topographic
-bare-earth surface. The seamless 1/3 arc-second DEM layers are derived
-from diverse source data that are processed to a common coordinate
-system and unit of vertical measure. These data are distributed in
-geographic coordinates in units of decimal degrees, and in conformance
-with the North American Datum of 1983 (NAD 83). All elevation values are
-in meters and, over the continental United States, are referenced to the
-North American Vertical Datum of 1988 (NAVD88). The seamless 1/3
-arc-second DEM layer provides coverage of the conterminous United
-States, Hawaii, Puerto Rico, other territorial islands, and in limited
-areas of Alaska. The seamless 1/3arc-second DEM is available as
-pre-staged current and historical products tiled in GeoTIFF format. The
-seamless 1/3 arc-second DEM layer is updated continually as new data
-become available in the current folder. Previously created 1 degree
-blocks are retained in the historical folder with an appended date
-suffix (YYYMMDD) when they were produced. Other 3DEP products are
-nationally seamless DEMs in resolutions of 1, and 2 arc seconds. These
-seamless DEMs were referred to as the National Elevation Dataset (NED)
-from about 2000 through 2015 at which time they became the seamless DEM
-layers under the 3DEP program and the NED name and system were retired.
-Other 3DEP products include one-meter DEMs produced exclusively from
-high resolution light detection and ranging (lidar) source data and
-five-meter DEMs in Alaska as well as various source datasets including
-the lidar point cloud and interferometric synthetic aperture radar
-(Ifsar) digital surface models and intensity images. All 3DEP products
-are public domain.</p>
-</sec>
-<sec id="cell-29bfd6bd-5319-4908-8760-e54d9cf05f68-nb-1" specific-use="notebook-content">
-<code language="python">## install required libraries if not already installed 
-#!pip install rasterio geopandas matplotlib
-!pip install whitebox -U
-</code>
-<boxed-text>
-  <preformat>Requirement already satisfied: whitebox in c:\users\rl587\appdata\local\anaconda3\lib\site-packages (2.3.5)
-Requirement already satisfied: Click&gt;=6.0 in c:\users\rl587\appdata\local\anaconda3\lib\site-packages (from whitebox) (8.1.7)
-Requirement already satisfied: colorama in c:\users\rl587\appdata\local\anaconda3\lib\site-packages (from Click&gt;=6.0-&gt;whitebox) (0.4.6)</preformat>
-</boxed-text>
-</sec>
-<sec id="cell-58643151-f216-404d-befa-93c526ba8027-nb-1" specific-use="notebook-content">
-<p><bold>rasterio:</bold> A library used for reading and writing
-geospatial raster data (such as DEMs), with support for masking,
-reprojecting, and manipulating raster datasets.</p>
-<p><bold>geopandas:</bold> An extension of pandas that simplifies
-working with geospatial data, enabling easy reading, writing, and
-manipulation of vector data such as shapefiles.</p>
-<p><bold>matplotlib:</bold> A popular plotting library in Python, used
-for creating static, animated, and interactive visualizations, including
-map displays and colormaps for DEMs.</p>
-</sec>
-<sec id="e640acc4-a097-4b3b-874f-33a76ac97b4d-nb-1" specific-use="notebook-content">
-<code language="python">import rasterio
-import geopandas as gpd
-from rasterio.mask import mask
-from rasterio.plot import show  
-import matplotlib.pyplot as plt
-from matplotlib.colors import LightSource
-from shapely.geometry import box</code>
-</sec>
-<sec id="c294d4db-fd94-4d4f-a882-97841a89ace7-nb-1" specific-use="notebook-content">
-<code language="python">dem_url = &quot;https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif&quot;
-shapefile_path = r&quot;G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp&quot;
-</code>
-</sec>
-<sec id="a56fdcc2-9e5b-41b5-ae23-5c99a539a658-nb-1" specific-use="notebook-content">
-<code language="python"># Step 1: Load the DEM from the National Map
-#dem_url = &quot;https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w111/USGS_13_n35w111_20240402.tif&quot;
-
-with rasterio.open(dem_url) as src:
-    dem_data = src.read(1)
-    dem_meta = src.meta</code>
-</sec>
-<sec id="cell-9796c5ac-7af0-4c4e-9a67-51fbc3ad6107-nb-1" specific-use="notebook-content">
-<code language="python"># Plot the DEM using imshow to allow colorbar creation
-plt.figure(figsize=(10, 10))
-plt.title(&quot;Loaded DEM&quot;)
-plt.imshow(dem_data, cmap='terrain')
-plt.colorbar(label='Elevation (m)')
-plt.show()</code>
-<boxed-text>
-  <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-6-output-1.png" />
-</boxed-text>
-</sec>
-<sec id="b1d9c9f7-1511-4697-82e8-69a6ee9f3185-nb-1" specific-use="notebook-content">
-<code language="python"># Step 2: Load the shapefile for masking
-#shapefile_path = r&quot;G:\Data\Arizona_HUC08plus\Elevation\WoodsCanyonQuad\WoodsCanyonQuad.shp&quot;
-shape_data = gpd.read_file(shapefile_path)
-
-# Reproject the shapefile to the DEM's CRS (if necessary)
-shape_data = shape_data.to_crs(dem_meta['crs'])
-
-# Check if shapefile bounds intersect DEM bounds
-dem_bounds = src.bounds
-shape_bounds = shape_data.total_bounds
-if not box(*dem_bounds).intersects(box(*shape_bounds)):
-    print(&quot;Shapefile and DEM do not overlap. Please check the coordinates.&quot;)
-else:
-    print(&quot;Shapefile and DEM overlap.&quot;)
-
-print(&quot;DEM bounds:&quot;, src.bounds)
-print(&quot;Shapefile bounds:&quot;, shape_data.total_bounds)</code>
-<boxed-text>
-  <preformat>Shapefile and DEM overlap.
-DEM bounds: BoundingBox(left=-111.00055555639324, bottom=33.99944444340724, right=-109.99944444420515, top=35.000555556494646)
-Shapefile bounds: [-111.00000001   34.24999995 -110.75000001   34.49999995]</preformat>
-</boxed-text>
-</sec>
-<sec id="cell-0614c8a2-7ec9-4fd3-a7ac-e78c5bf62f2a-nb-1" specific-use="notebook-content">
-<code language="python"># Step 3: Plot the DEM and shapefile to check overlap
-plt.figure(figsize=(10, 10))
-plt.title(&quot;DEM and Shapefile Overlay&quot;)
-
-# Plot the DEM
-plt.imshow(dem_data, cmap='terrain', extent=[src.bounds.left, src.bounds.right, src.bounds.bottom, src.bounds.top])
-
-# Plot the shapefile geometry
-shape_data.boundary.plot(ax=plt.gca(), color='red')
-plt.show()</code>
-<boxed-text>
-  <graphic mimetype="image" mime-subtype="png" xlink:href="WoodsCanyonSinkholes_files/figure-jats/cell-8-output-1.png" />
-</boxed-text>
-</sec>
-<sec id="cell-8ccc886e-71fb-4e8b-ba00-00020902c0e3-nb-1" specific-use="notebook-content">
-<sec id="using-the-whitebox_tools.py-script-nb-1">
-  <title>Using the <italic>Whitebox_tools.py</italic> script</title>
-  <p><ext-link ext-link-type="uri" xlink:href="https://www.whiteboxgeo.com/manual/wbt_book/python_scripting/using_whitebox_tools.html">Guide</ext-link></p>
-  </sec>
-  <sec id="cell-48dd7f83-2cd9-4aa9-9130-b6e287e74fed-nb-1" specific-use="notebook-content">
-  <code language="python">from whitebox_tools import WhiteboxTools
-
-wbt = WhiteboxTools()
-  </code>
-  <boxed-text>
-    <preformat>ModuleNotFoundError: No module named 'whitebox_tools'
-[1;31m---------------------------------------------------------------------------[0m
-[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [1;32mIn[12], line 1[0m
-[1;32m----&gt; 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mwhitebox_tools[39;00m [38;5;28;01mimport[39;00m WhiteboxTools
-[0;32m      3[0m wbt [38;5;241m=[39m WhiteboxTools()
-
-[1;31mModuleNotFoundError[0m: No module named 'whitebox_tools'</preformat>
-  </boxed-text>
-  </sec>
-</sec>
-</body>
-
-
-
-<back>
-</back>
-
-
-</sub-article>
-<sub-article article-type="notebook" id="nb-6-nb-2">
-<front-stub>
-</front-stub>
-
-<body>
-<sec id="cell-486a6569-6b42-4c38-9c66-ccdfffd5c7b3-nb-2" specific-use="notebook-content">
-<code language="python">---
-title: Karst feature characterization to identify locations for opportunistic recharge enhancement in Arizona
-author:
-  - name:
-      given: Ryan E.
-      family: Lima
-    degrees:
-        - PhD
-    orcid: 0000-0002-5352-7215
-    corresponding: true
-    email: ryan.lima@nau.edu
-    roles:
-      - Investigation    
-      - Software
-      - Visualization
-    affiliations:
-      - Northern Arizona University
-      - School of Informatics, Computing &amp; Cyber Systems
-      - School of Earth and Sustainability
-  - name: Abraham E. Springer
-    degrees:
-        - PhD
-    corresponding: false
-    roles: []
-    affiliations:
-      - Northern Arizona University
-      - School of Earth and Sustainability
-  - name: Temuulen Tsagaan Sankey
-    degrees:
-        - PhD
-    corresponding: false
-    roles: []
-    affiliations:
-      - Northern Arizona University
-      - School of Informatics, Computing &amp; Cyber Systems
-keywords:
-  - Karst
-  - Recharge
-  - Arizona
-  - Opportunistic Recharge Enhancement
-abstract: |
-  This research utlizes remote sensing and GIS to characterize karst surface features and map areas suitable for opportunistic groundwater recharge enhancement in the State of Arizona
-  
-plain-language-summary: |
-  This research utlizes remote sensing and GIS to characterize karst surface features and map areas suitable for opportunistic groundwater recharge enhancement in the State of Arizona
-key-points:
-  - Key point 1
-  - Key point 2 
-date: last-modified
-bibliography: references.bib
-citation:
-  container-title: Journal Name
-number-sections: true
----</code>
-</sec>
-<sec id="ba35528e-110c-41d9-9c08-318be1efeff2-nb-2" specific-use="notebook-content">
-<code language="python">## Introduction
-</code>
-</sec>
-</body>
-
-
-
-<back>
-</back>
-
-
-</sub-article>
-<sub-article article-type="notebook" id="nb-9-nb-3">
-<front-stub>
-</front-stub>
-
-<body>
-<sec id="cell-6bf7dfe6-0616-4c13-a416-64b61cd945c0-nb-3" specific-use="notebook-content">
-<code language="python">import os
-import pkg_resources
-import whitebox
-from WBT.whitebox_tools import WhiteboxTools
-wbt = WhiteboxTools()
-wbt.install_wbt_extension()
-</code>
-<boxed-text>
-  <preformat>ModuleNotFoundError: No module named 'WBT'
-[1;31m---------------------------------------------------------------------------[0m
-[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [1;32mIn[1], line 4[0m
-[0;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mpkg_resources[39;00m
-[0;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mwhitebox[39;00m
-[1;32m----&gt; 4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mWBT[39;00m[38;5;21;01m.[39;00m[38;5;21;01mwhitebox_tools[39;00m [38;5;28;01mimport[39;00m WhiteboxTools
-[0;32m      5[0m wbt [38;5;241m=[39m WhiteboxTools()
-[0;32m      6[0m wbt[38;5;241m.[39minstall_wbt_extension()
-
-[1;31mModuleNotFoundError[0m: No module named 'WBT'</preformat>
-</boxed-text>
-</sec>
-</body>
-
-
-
-<back>
-</back>
-
-
-</sub-article>
-<!-- (F2ED4C6E)[nb-4]:/home/runner/work/ATUR-KARST/ATUR-KARST/notebooks/Lineament_extraction_testing.ipynb -->
 
 </article>
